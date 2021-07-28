@@ -9,7 +9,7 @@ Stanley Soutions Web
 
 # Imports
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 
 
@@ -21,37 +21,45 @@ GENERIC_HTML = """<!DOCTYPE html>
 <link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
 <style>
 .parent {
-  position: absolute;
-  top: 10%;
-  left: 5%
+    position: absolute;
+    top: 10%;
+    left: 5%
 }
 
 .child {
-  position: absolute;
-  bottom: -100%;
-  right: -50%;
+    position: absolute;
+    bottom: -100%;
+    right: -50%;
 }
 
 body {
-  background-image: url('./static/dogxray.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: right;
-  background-color: black;
+    background-image: url('./static/dogxray.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right;
+    background-color: black;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    color: #81BCB8;
+    font-family: 'Amatic SC';
+    font-size: 16px;
 }
 
 h1 {
-  text-transform: uppercase;
-  color: #0D5D5A;
-  font-family: 'Aldrich';
-  font-size: 40px;
-  text-align: right;
+    text-transform: uppercase;
+    color: #0D5D5A;
+    font-family: 'Aldrich';
+    font-size: 40px;
+    text-align: right;
 }
 
 p {
-  color: #81BCB8;
-  font-family: 'Amatic SC';
-  font-size: 32px;
+    color: #81BCB8;
+    font-family: 'Amatic SC';
+    font-size: 32px;
 }
 </style>
 </head>
@@ -66,6 +74,10 @@ just write it out on graph paper...</p>
 </div>
 </div>
 
+<footer>
+© 2021 - Stanley Solutions
+</footer>
+
 </body>
 </html>"""
 
@@ -76,6 +88,13 @@ app = FastAPI()
 # Mount Static Files
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-@app.get("/", response_class=HTMLResponse)
+# Index Page
+@app.get("/")
 async def root():
-    return GENERIC_HTML
+    return HTMLResponse(content=GENERIC_HTML, status_code=503)
+
+
+
+@app.get("/favicon.ico")
+async def main():
+    return FileResponse("./static/favicon.svg")
