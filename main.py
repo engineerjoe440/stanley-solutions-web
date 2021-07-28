@@ -66,7 +66,7 @@ p {
 <body>
 
 <div class="parent">
-<h1>Math Homework isn't<br>all that dog ate.</h1>
+<h1>Math Homework isn't<br>all the dog ate.</h1>
 
 <div class="child">
 <p>Somehow it also got its jaws around our HTML, too.<br>Maybe next time we won't
