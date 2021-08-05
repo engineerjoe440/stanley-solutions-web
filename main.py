@@ -32,8 +32,14 @@ GENERIC_HTML = """<!DOCTYPE html>
     right: -50%;
 }
 
+.headright{
+    position: absolute;
+    top: 10%;
+    right: 5%;
+}
+
 body {
-    background-image: url('./static/dogxray.jpg');
+    background-image: url('/static/dogxray.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: right;
@@ -65,6 +71,11 @@ p {
 </head>
 <body>
 
+<div>
+<div class="headright">
+<h1>{{CODE}}</h1>
+</div>
+
 <div class="parent">
 <h1>Math Homework isn't<br>all the dog ate.</h1>
 
@@ -72,6 +83,8 @@ p {
 <p>Somehow it also got its jaws around our HTML, too.<br>Maybe next time we won't
 just write it out on graph paper...</p>
 </div>
+</div>
+
 </div>
 
 <footer>
@@ -91,7 +104,20 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Index Page
 @app.get("/")
 async def root():
-    return HTMLResponse(content=GENERIC_HTML, status_code=503)
+    return HTMLResponse(
+        content=GENERIC_HTML.replace("{{CODE}}", "503"),
+        status_code=503,
+    )
+
+# Custom Page
+@app.get("/err/{error_code}")
+async def error_page(error_code: str):
+    if not (error_code.isdigit() and len(error_code) == 3):
+        await root()
+    return HTMLResponse(
+        content=GENERIC_HTML.replace("{{CODE}}", error_code),
+        status_code=int(error_code),
+    )
 
 
 
