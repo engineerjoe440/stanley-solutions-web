@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+<style>
+.parent {
+    position: absolute;
+    top: 10%;
+    left: 5%
+}
+
+.child {
+    position: absolute;
+    bottom: -100%;
+    right: -50%;
+}
+
+.headright{
+    position: absolute;
+    top: 10%;
+    right: 5%;
+}
+
+body {
+    background-image: url('/static/skullcrossbones.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: right 5em top -10em;
+    /*background-size: 70%;*/
+    background-color: black;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    color: green;
+    font-family: 'Amatic SC';
+    font-size: 16px;
+}
+
+h1 {
+    text-transform: uppercase;
+    color: #40db27;
+    font-family: 'Aldrich';
+    font-size: 40px;
+    text-align: right;
+}
+
+p {
+    color: green;
+    font-family: 'Amatic SC';
+    font-size: 32px;
+}
+</style>
+</head>
+<body>
+
+<div>
+<div class="headright">
+<h1>{{CODE}}</h1>
+</div>
+
+<div class="parent">
+<h1>Uh Oh.</h1>
+
+<div class="child">
+<p>I'm no expert,<br>but that looks dead...</p>
+</div>
+</div>
+
+</div>
+
+<footer>
+© 2021 - Stanley Solutions
+</footer>
+
+</body>
+</html>

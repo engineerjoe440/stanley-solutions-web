@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Aldrich' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Amatic SC' rel='stylesheet'>
+<style>
+.parent {
+    position: absolute;
+    top: 10%;
+    left: 5%
+}
+
+.child {
+    position: absolute;
+    bottom: -100%;
+    right: -50%;
+}
+
+.headright{
+    position: absolute;
+    top: 10%;
+    right: 5%;
+}
+
+body {
+    background-image: url('/static/coffeepot.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: contain;
+    background-position: right 10em top;
+    background-color: #284b5f;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    color: white;
+    font-family: 'Amatic SC';
+    font-size: 16px;
+}
+
+h1 {
+    text-transform: uppercase;
+    color: #b0bbbf;
+    font-family: 'Aldrich';
+    font-size: 40px;
+    text-align: right;
+}
+
+p {
+    color: white;
+    font-family: 'Amatic SC';
+    font-size: 32px;
+}
+</style>
+</head>
+<body>
+
+<div>
+<div class="headright">
+<h1>{{CODE}}</h1>
+</div>
+
+<div class="parent">
+<h1>Can't Do Anything<br>Without Coffee.</h1>
+
+<div class="child">
+<p>But we can't do anything about your<br>HTTP request to <i>make</i>&nbsp; coffee.</p>
+</div>
+</div>
+
+</div>
+
+<footer>
+© 2021 - Stanley Solutions
+</footer>
+
+</body>
+</html>
