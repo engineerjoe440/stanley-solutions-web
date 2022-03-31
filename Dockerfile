@@ -1,6 +1,6 @@
-FROM python:3.9
+FROM python:3.10.4-buster
 
-RUN pip install fastapi uvicorn aiofiles
+RUN pip3 install fastapi uvicorn aiofiles jinja2
 
 EXPOSE 80
 

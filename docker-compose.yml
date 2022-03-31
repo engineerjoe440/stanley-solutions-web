@@ -1,11 +1,11 @@
-version: "3.9"
+version: "3.3"
 
 # Web-UI is Defined by Local "Dockerfile", Must Be Rebuilt Each Time
 services:
-  webui:
+  stanleyfailserver:
     build:
       context: ./
       dockerfile: ./Dockerfile
     ports:
-      - 8080:80
+      - 8888:80
     restart: always
